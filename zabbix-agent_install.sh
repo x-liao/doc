@@ -54,3 +54,7 @@ dpkg -i /root/zabbix-release_4.2-1+${release}_all.deb
 apt update
 apt -y install zabbix-agent
 systemctl enable zabbix-agent
+
+sed -ie "s/Hostname=Zabbix server/Hostname=$1/g" /etc/zabbix/zabbix_agentd.conf
+sed -ie "s/Server=127.0.0.1/Server=$2/g" /etc/zabbix/zabbix_agentd.conf
+sed -ie "s/ServerActive=127.0.0.1/ServerActive=$2/g" /etc/zabbix/zabbix_agentd.conf
