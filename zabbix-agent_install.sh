@@ -58,3 +58,5 @@ systemctl enable zabbix-agent
 sed -ie "s/Hostname=Zabbix server/Hostname=$2/g" /etc/zabbix/zabbix_agentd.conf
 sed -ie "s/Server=127.0.0.1/Server=$1/g" /etc/zabbix/zabbix_agentd.conf
 sed -ie "s/ServerActive=127.0.0.1/ServerActive=$1/g" /etc/zabbix/zabbix_agentd.conf
+
+systemctl restart zabbix-agent
